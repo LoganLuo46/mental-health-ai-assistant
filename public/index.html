@@ -1,0 +1,71 @@
+index.html:
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mental Health Helper</title>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+  <!-- Link external CSS and JS -->
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="app.js"></script>
+</head>
+
+<body>
+  <h1>Mental Health Helper</h1>
+
+  <!-- Screen 1: Mental Health Helper -->
+  <div id="screen-helper" class="screen active">
+    <div class="container">
+      <form id="form">
+        <textarea id="input" placeholder="Please enter the patient's issue" required></textarea>
+        <button type="submit">Get Suggestion</button>
+      </form>
+      <p class="loading" id="loading">Generating advice...</p>
+      <div class="response-box" id="responseBox">
+        <p id="result"></p>
+        <button class="copy-btn" id="copyBtn">Make a Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 2: Search Case -->
+  <div id="screen-search" class="screen">
+    <div class="container">
+      <input type="text" id="searchInput" placeholder="Enter keyword (e.g., anxiety)" />
+      <button onclick="search()">	Search Cases </button>
+      <div id="results"></div>
+    </div>
+  </div>
+
+  <!-- Bottom tab bar -->
+  <!-- <div class="tab-bar">
+    <button onclick="showScreen('helper')">
+      <div>💬</div>
+      <div>Advice Generator</div>
+    </button>
+    
+    <button onclick="showScreen('search')">
+      <div>🔍</div>
+      <div>Search Cases</div>
+    </button>
+  </div> -->
+  <div class="tab-bar">
+    <button onclick="showScreen('helper')">
+      <i data-lucide="bot"></i>
+      <span>Advice</span>
+    </button>
+    <button onclick="showScreen('search')">
+      <i data-lucide="search"></i>
+      <span>Search</span>
+    </button>
+  </div>
+  
+</body>
+</html>
